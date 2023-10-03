@@ -1,0 +1,15 @@
+./TestLab1.exe 0 5 6.3 c howdy
+./TestLab1.exe 0 7 6.2 z fjlaidsufe
+./TestLab1.exe 0 25 16.7 A California
+./TestLab1.exe 1 0 0
+./TestLab1.exe 1 1 5
+./TestLab1.exe 1 2 10
+./TestLab1.exe 1 12 60
+./TestLab1.exe 2 1 1
+./TestLab1.exe 2 2 2
+./TestLab1.exe 2 3 6
+./TestLab1.exe 2 5 120
+./TestLab1.exe 3 3 6 9
+./TestLab1.exe 3 0 0 0
+./TestLab1.exe 3 5 9 14
+./TestLab1.exe 3 115 99 214

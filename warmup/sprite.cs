@@ -102,7 +102,11 @@ public class Sprite {
 	 */
 	public void HorizontalRotate(int degrees)
 	{
-		Console.WriteLine("Not Yet Implemented");
+        int degMax = 360;
+        int degree = degrees % degMax;
+
+        int newpos = (int)(this.Horiz + degree + degMax) % degMax;
+        this.Horiz = (uint)newpos;
 	}
 
 	/* VerticalRotate
@@ -114,7 +118,11 @@ public class Sprite {
 	 */
 	public void VerticalRotate(int degrees)
 	{
-		Console.WriteLine("Not Yet Implemented");
+		int degMax = 360;
+        int degree = degrees % degMax;
+
+        int newpos = (int)(this.Vert + degree + degMax) % degMax; //adding degMax accounts for negative inputs
+        this.Vert = (uint)newpos;
 	}
 
 
@@ -129,7 +137,14 @@ public class Sprite {
 	 */
 	public void Move(int steps)
 	{
-		Console.WriteLine("Not Yet Implemented");
+		int x = this.XCoor;
+        int y = this.YCoor;
+        double h = Math.Sqrt(x*x + y*y) + steps;
+        double deg = this.Horiz;
+        double rad = deg * (Math.PI / 180);
+
+        this.YCoor = h * Math.Sin(rad);
+        this.XCoor = h * Math.Cos(rad);
 	}
 
 	/* DrinkSmallShieldPot
