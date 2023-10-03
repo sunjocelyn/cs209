@@ -155,7 +155,15 @@ public class Sprite {
  	 */
 	public uint DrinkSmallShieldPot()
 	{
-		Console.WriteLine("Not Yet Implemented");
+		if (this.Shield < 50){
+            if (this.Shield + 25 > 50){
+                this.Shield = 50;
+                return 1;
+            } else {
+                this.Shield += 25;
+                return 1;
+            }
+        }
 		return 0;
 	}
 
@@ -167,8 +175,16 @@ public class Sprite {
  	 */
 	public uint DrinkLargeShieldPot()
 	{
-		Console.WriteLine("Not Yet Implemented");
-		return 0;
+		if (this.Shield < 100){
+            if (this.Shield + 50 > 100){
+                this.Shield = 100;
+                return 1;
+            } else {
+                this.Shield += 50;
+                return 1;
+            }
+        }
+        return 0;
 	}
 
 	/* ApplyBandage
@@ -179,7 +195,15 @@ public class Sprite {
  	 */
 	public uint ApplyBandage()
 	{
-		Console.WriteLine("Not Yet Implemented");
+		if (this.Health < 75){
+            if (this.Health + 15 > 75){
+                this.Health = 75;
+                return 1;
+            } else {
+                this.Health += 15;
+                return 1;
+            }
+        }
 		return 0;
 	}
 
@@ -191,7 +215,10 @@ public class Sprite {
  	 */
 	public uint UseMedKit()
 	{
-		Console.WriteLine("Not Yet Implemented");
+		if (this.Health < 100){
+            this.Health = 100;
+            return 1;
+        }
 		return 0;
 	}
 
@@ -205,7 +232,25 @@ public class Sprite {
  	 */
 	public uint WeaponDamage(uint damage)
 	{
-		Console.WriteLine("Not Yet Implemented");
+		if (this.Shield >= damage){
+            this.Shield -= damage;
+
+        } else {
+            this.Shield = 0;
+            int rollover = damage - this.Shield;
+
+            if (rollover > this.Health){
+                this.Health = 0;
+            } else {
+                this.Health -= rollover;
+            }
+        }
+
+        if (this.Health > 0){
+            return 1;
+        }
+        //health can only go down if there are no shields
+
 		return 0;
 	}
 
@@ -232,7 +277,10 @@ public class Sprite {
 	 */
 	public uint Revive()
 	{
-		Console.WriteLine("Not Yet Implemented");
+        if (this.Health == 0 && this.Shield == 0){
+            this.Health = 30;
+            return 1;
+        }
 		return 0;
 	}
 
@@ -244,7 +292,10 @@ public class Sprite {
 	 */
 	public uint Reboot()
 	{
-		Console.WriteLine("Not Yet Implemented");
+		if (this.Health == 0 && this.Shield == 0){
+            this.Health = 100;
+            return 1;
+        }
 		return 0;
 	}
 
