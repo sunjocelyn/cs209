@@ -19,7 +19,7 @@ public class Sprite {
 		ZCoor = 0;
 		Horiz = 0;
 		Vert = 0;
-		Health = 0;
+		Health = 100;
 		Shield = 0;
 	}
 
@@ -156,13 +156,13 @@ public class Sprite {
 	public uint DrinkSmallShieldPot()
 	{
 		if (this.Shield < 50){
-            if (this.Shield + 25 > 50){
+            this.Shield += 25;
+
+            if (this.Shield > 50){
                 this.Shield = 50;
-                return 1;
-            } else {
-                this.Shield += 25;
-                return 1;
             }
+
+            return 1;
         }
 		return 0;
 	}
@@ -176,13 +176,13 @@ public class Sprite {
 	public uint DrinkLargeShieldPot()
 	{
 		if (this.Shield < 100){
-            if (this.Shield + 50 > 100){
+            this.Shield += 50;
+
+            if (this.Shield > 100){
                 this.Shield = 100;
-                return 1;
-            } else {
-                this.Shield += 50;
-                return 1;
             }
+            return 1;
+
         }
         return 0;
 	}
