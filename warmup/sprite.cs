@@ -143,8 +143,8 @@ public class Sprite {
         double deg = this.Horiz;
         double rad = deg * (Math.PI / 180);
 
-        this.YCoor = h * Math.Sin(rad);
-        this.XCoor = h * Math.Cos(rad);
+        this.YCoor = (int) Math.Round(h * Math.Sin(rad));
+        this.XCoor = (int) Math.Round(h * Math.Cos(rad));
 	}
 
 	/* DrinkSmallShieldPot
@@ -237,7 +237,7 @@ public class Sprite {
 
         } else {
             this.Shield = 0;
-            int rollover = damage - this.Shield;
+            uint rollover = damage - this.Shield;
 
             if (rollover > this.Health){
                 this.Health = 0;
